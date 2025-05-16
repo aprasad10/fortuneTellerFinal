@@ -13,6 +13,12 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 
+/**
+ * Fortune Teller Project - User/player can use implemented buttons to interact
+ * with the fortune-teller application––remove fortunes, generate a random fortune, add fortune
+ * @author Ashley Prasad
+ * @since 05/16/2025
+ */
 public class FortuneController implements Initializable {
     private ArrayList<String> fortunes = new ArrayList<>();
     @FXML
@@ -22,6 +28,13 @@ public class FortuneController implements Initializable {
     @FXML
     private TextField typeFortune;
 
+    /**
+     * The initialize method initializes the first 10 pre-made fortunes and adds them
+     * into the fortunes ArrayList. It also adds these fortunes into the selectRemove
+     * ChoiceBox list and sets the selectRemove default value as "Select"
+     * @param location //isn't necessarily used
+     * @param resources //isn't necessarily used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fortunes.add("A long-lost friend will return with surprising news.");
@@ -40,6 +53,13 @@ public class FortuneController implements Initializable {
         }
         selectRemove.setValue("Select");
     }
+
+    /**
+     * The onReadFortuneButtonClick() method pulls a random number within the
+     * bounds of the fortunes size and prints the fortune at that random index
+     * if the selectRemove list isn't empty, otherwise if the selectRemove list is
+     * empty, it prints the alternative message.
+     */
     @FXML
     protected void onReadFortuneButtonClick() {
         if (!selectRemove.getItems().isEmpty()) {
@@ -51,15 +71,23 @@ public class FortuneController implements Initializable {
             fortunePrint.setText("No fortunes to read here.");
         }
     }
+
+    /**
+     * The onRemoveButtonClick() gets a selected value and puts it into stringHolder,
+     * then removes it from the fortunes and selectRemove list if the selectRemove list
+     * isn't empty and resets the selectRemove default value as "Select."
+     * Warning is sent if remove button is clicked once more at default value or when
+     * selectRemove is empty.
+     */
     @FXML
     protected void onRemoveButtonClick() {
-        boolean pressedEmpty = false;
+        boolean pressedEmpty = false; // checks if remove button is pressed again
         String stringHolder = selectRemove.getValue();
         if (!selectRemove.getItems().isEmpty()) {
             fortunes.remove(stringHolder);
             selectRemove.getItems().remove(stringHolder);
             selectRemove.setValue("Select");
-            if (stringHolder == "Select") {
+            if (stringHolder == "Select") { // sends warning if remove button is pressed at default value
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Nothing Selected");
                 alert.setContentText("Please select something to remove.");
@@ -76,6 +104,13 @@ public class FortuneController implements Initializable {
             alert.showAndWait();
         }
     }
+
+    /**
+     * The onAddButtonClick() method gets the text from the typeFortune TextField
+     * and puts it into newFortune, which is then added into the fortunes and selectRemove
+     * lists if it's not empty. Otherwise, it throws an exception warning if
+     * the add button is pressed with nothing typed in.
+     */
     @FXML
     protected void onAddButtonClick() {
         String newFortune = typeFortune.getText().trim();
