@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="490.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fortunetellerfinal.FortuneController">
+   <children>
+      <ImageView fx:id="fortuneImag" fitHeight="192.0" fitWidth="367.0" layoutX="111.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fortune.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="57.0" layoutY="157.0" prefHeight="85.0" prefWidth="387.0" text="• Click &quot;Read me a fortune&quot; to generate a random fortune&#10;• Type in a fortune, then press &quot;Add fortune&quot; to add a fortune to the list&#10;• Select a fortune from the dropdown list and click &quot;Remove Fortune&quot; to remove a selected fortune" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Herculanum" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="218.0" layoutY="65.0" text="Fortune&#10;Teller" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Herculanum" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="remove" layoutX="46.0" layoutY="400.0" mnemonicParsing="false" onAction="#onRemoveButtonClick" style="-fx-background-color: linear-gradient(to bottom, beige, palegoldenrod);" text="Remove Fortune">
+         <font>
+            <Font name="Herculanum" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="readFortune" layoutX="321.0" layoutY="412.0" mnemonicParsing="false" onAction="#onReadFortuneButtonClick" style="-fx-background-color: linear-gradient(to bottom, beige, palegoldenrod);" text="Read Me a Fortune">
+         <font>
+            <Font name="Herculanum" size="13.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="selectRemove" layoutX="46.0" layoutY="425.0" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: linear-gradient(to bottom, beige, palegoldenrod); -fx-font-family: Herculanum;" />
+      <Button fx:id="add" layoutX="198.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAddButtonClick" style="-fx-background-color: linear-gradient(to bottom, beige, palegoldenrod);" text="Add Fortune">
+         <font>
+            <Font name="Herculanum" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="typeFortune" layoutX="198.0" layoutY="425.0" prefHeight="26.0" prefWidth="103.0" promptText="Type Here" style="-fx-background-color: linear-gradient(to bottom, beige, palegoldenrod);">
+         <font>
+            <Font name="Herculanum" size="13.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="137.0" fitWidth="366.0" layoutX="104.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/scroll.png" />
+         </image>
+      </ImageView>
+      <StackPane layoutX="155.0" layoutY="270.0" prefHeight="103.0" prefWidth="187.0">
+         <children>
+            <Label fx:id="fortunePrint" alignment="CENTER" contentDisplay="CENTER" style="-fx-wrap-text: true; -fx-pref-width: 180;" text="Your fortune lies here." textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Herculanum" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </children>
+</Pane>
